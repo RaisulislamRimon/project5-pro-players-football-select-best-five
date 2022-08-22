@@ -47,6 +47,16 @@ document
   .getElementById("calculate-btn")
   .addEventListener("click", calculateBudget);
 
+function calculate() {
+  const perPlayerExpenseField = document.getElementById(
+    "per-player-expense-field"
+  );
+  const perPlayerExpenseFieldString = perPlayerExpenseField.value;
+  console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
+  const perPlayerExpense = parseFloat(perPlayerExpenseFieldString);
+  console.log(typeof perPlayerExpense, perPlayerExpense);
+}
+
 function calculateBudget() {
-  console.log("calculate-btn");
+  calculate();
 }
