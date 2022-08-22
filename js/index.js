@@ -24,6 +24,8 @@ function displaySelectedPlayers(playerTotalArray) {
     // creating list of selected players
     const playerNameElement = document.createElement("li");
     playerNameElement.innerText = playerName;
+    playerNameElement.style.padding = "10px";                 
+    playerNameElement.style.fontSize = "18px";
     selectedPlayerV.appendChild(playerNameElement);
   }
 }
