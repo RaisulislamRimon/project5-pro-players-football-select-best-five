@@ -61,10 +61,10 @@ document
 
 // function calculate(elementId, totalSelectedPlayers) {
 function calculate(elementId) {
-  const perPlayerExpenseField = document.getElementById(elementId);
-  const perPlayerExpenseFieldString = perPlayerExpenseField.value;
+  const expenseField = document.getElementById(elementId);
+  const expenseFieldString = expenseField.value;
   // console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
-  const expense = parseFloat(perPlayerExpenseFieldString);
+  const expense = parseFloat(expenseFieldString);
   return expense;
   // console.log(typeof perPlayerExpense, perPlayerExpense);
   // const totalExpense = perPlayerExpense * totalSelectedPlayers;
