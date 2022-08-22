@@ -24,7 +24,7 @@ function displaySelectedPlayers(playerTotalArray) {
     // creating list of selected players
     const playerNameElement = document.createElement("li");
     playerNameElement.innerText = playerName;
-    playerNameElement.style.padding = "10px";                 
+    playerNameElement.style.padding = "10px";
     playerNameElement.style.fontSize = "18px";
     selectedPlayerV.appendChild(playerNameElement);
   }
@@ -55,23 +55,26 @@ document
   .getElementById("calculate-btn")
   .addEventListener("click", calculateBudget);
 
-function calculate(elementId, totalSelectedPlayers) {
+// function calculate(elementId, totalSelectedPlayers) {
+function calculate(elementId) {
   const perPlayerExpenseField = document.getElementById(elementId);
   const perPlayerExpenseFieldString = perPlayerExpenseField.value;
   // console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
   const perPlayerExpense = parseFloat(perPlayerExpenseFieldString);
+  return perPlayerExpense;
   // console.log(typeof perPlayerExpense, perPlayerExpense);
-  const totalExpense = perPlayerExpense * totalSelectedPlayers;
+  // const totalExpense = perPlayerExpense * totalSelectedPlayers;
   // console.log(totalExpense);
-  return totalExpense;
+  // return totalExpense;
   // document.getElementById("player-total-expense").innerText = totalExpense;
 }
 
 function calculateBudget() {
   const totalSelectedPlayers = playerTotalArray.length;
   const totalExpense = calculate(
-    "per-player-expense-field",
-    totalSelectedPlayers
+    "per-player-expense-field"
+    // , totalSelectedPlayers
   );
-  document.getElementById("player-total-expense").innerText = totalExpense;
+  document.getElementById("player-total-expense").innerText =
+    totalExpense * totalSelectedPlayers;
 }
