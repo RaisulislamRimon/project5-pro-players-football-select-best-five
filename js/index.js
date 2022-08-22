@@ -4,7 +4,7 @@ const playerTotalArray = [];
 //  displaying selected players
 function displaySelectedPlayers(playerTotalArray) {
   console.log(playerTotalArray);
-  // console.log(playerTotalArray.length);
+  console.log(playerTotalArray.length);
   if (playerTotalArray.length > 5) {
     alert("You can only select 5 players");
     // if selected player is more than 5 then it will remove the last selected player
@@ -47,16 +47,20 @@ document
   .getElementById("calculate-btn")
   .addEventListener("click", calculateBudget);
 
-function calculate() {
-  const perPlayerExpenseField = document.getElementById(
-    "per-player-expense-field"
-  );
+function calculate(elementId, totalSelectedPlayers) {
+  const perPlayerExpenseField = document.getElementById(elementId);
   const perPlayerExpenseFieldString = perPlayerExpenseField.value;
-  console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
+  // console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
   const perPlayerExpense = parseFloat(perPlayerExpenseFieldString);
-  console.log(typeof perPlayerExpense, perPlayerExpense);
+  // console.log(typeof perPlayerExpense, perPlayerExpense);
+  const totalExpense = perPlayerExpense * totalSelectedPlayers;
+  // console.log(totalExpense);
+  // return totalExpense;
+  document.getElementById("player-total-expense").innerText = totalExpense;
 }
 
-function calculateBudget() {
-  calculate();
+function calculateBudget(totalExpense) {
+  const totalSelectedPlayers = playerTotalArray.length;
+  calculate("per-player-expense-field", totalSelectedPlayers);
+  // document.getElementById("player-total-expense").innerText = totalExpense;
 }
