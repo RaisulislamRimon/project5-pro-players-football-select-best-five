@@ -29,6 +29,9 @@ function displaySelectedPlayers(playerTotalArray) {
 }
 
 function selectPlayer(element) {
+  // console.log(element);
+  // disable button after selected
+  element.disabled = true;
   const playerName = element.parentNode.children[1].innerText;
   //   creating player name Object
   const playerNameObj = {
@@ -38,4 +41,12 @@ function selectPlayer(element) {
   playerTotalArray.push(playerNameObj);
 
   displaySelectedPlayers(playerTotalArray);
+}
+
+document
+  .getElementById("calculate-btn")
+  .addEventListener("click", calculateBudget);
+
+function calculateBudget() {
+  console.log("calculate-btn");
 }
