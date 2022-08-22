@@ -5,20 +5,22 @@ const playerTotalArray = [];
 function displaySelectedPlayers(playerTotalArray) {
   console.log(playerTotalArray);
   console.log(playerTotalArray.length);
-  // if (playerTotalArray.length === 5) {
-  if (playerTotalArray.length >= 5) {
+  if (playerTotalArray.length === 6) {
+    alert("You can only select 5 players");
+    playerTotalArray.pop();
+    // if (playerTotalArray.length >= 5) {
     // alert("You can select only 5 players");
     // last added player will be removed automatically
-    playerTotalArray.pop();
+    // playerTotalArray.pop();
     // make all buttons disabled after 5 players are selected
     // if (playerTotalArray.length === 5) {
-    document.querySelectorAll(".player-select-button").forEach((button) => {
-      // button.disabled = true;
-      button.addEventListener("click", (event) => {
-        alert("You can select only 5 players");
-        button.disabled = false;
-      });
-    });
+    // document.querySelectorAll(".player-select-button").forEach((button) => {
+    //   // button.disabled = true;
+    //   button.addEventListener("click", (event) => {
+    //     alert("You can select only 5 players");
+    //     button.disabled = false;
+    //   });
+    // });
     // }
     // if 5 players selected then disable attribute removed
     // document.querySelectorAll(".player-select-button").forEach((button) => {
