@@ -10,6 +10,9 @@ header h1 {
 header p {
   font-family: "Manrope", sans-serif;
 }
-main{
+main {
   margin-top: -1px;
+}
+.fa-circle {
+  font-size: 0.2rem;
 }
