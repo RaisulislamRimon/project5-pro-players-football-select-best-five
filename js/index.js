@@ -38,10 +38,4 @@ function selectPlayer(element) {
   playerTotalArray.push(playerNameObj);
 
   displaySelectedPlayers(playerTotalArray);
-
-  //   if total selected player is more than 5 then it will show alert
-  // if (playerTotalArray.length > 5) {
-  //   alert("You can only select 5 players");
-  //   // return;
-  // }
 }
