@@ -10,10 +10,20 @@ function displaySelectedPlayers(playerTotalArray) {
     playerTotalArray.pop();
     return;
   }
+
+  // clearing list of selected players everytime before adding new players
+  const selectedPlayerV = document.getElementById("selected-player-v");
+  selectedPlayerV.innerHTML = "";
+
   // find out player name from array
-  // const playerName =
   for (const player of playerTotalArray) {
-    console.log(player.playerName);
+    // console.log(player.playerName);
+    const playerName = player.playerName;
+
+    // creating list of selected players
+    const playerNameElement = document.createElement("li");
+    playerNameElement.innerText = playerName;
+    selectedPlayerV.appendChild(playerNameElement);
   }
 }
 
