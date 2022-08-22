@@ -33,6 +33,7 @@ function displaySelectedPlayers(playerTotalArray) {
   }
 }
 
+// function to select player and add to array
 function selectPlayer(element) {
   // console.log(element);
   // disable button after selected
