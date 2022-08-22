@@ -60,8 +60,8 @@ function calculate(elementId) {
   const perPlayerExpenseField = document.getElementById(elementId);
   const perPlayerExpenseFieldString = perPlayerExpenseField.value;
   // console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
-  const perPlayerExpense = parseFloat(perPlayerExpenseFieldString);
-  return perPlayerExpense;
+  const expense = parseFloat(perPlayerExpenseFieldString);
+  return expense;
   // console.log(typeof perPlayerExpense, perPlayerExpense);
   // const totalExpense = perPlayerExpense * totalSelectedPlayers;
   // console.log(totalExpense);
@@ -78,3 +78,23 @@ function calculateBudget() {
   document.getElementById("player-total-expense").innerText =
     totalExpense * totalSelectedPlayers;
 }
+
+document
+  .getElementById("calculate-total-btn")
+  .addEventListener("click", function () {
+    const managerExpenseField = calculate("manager-expense-field");
+    const coachExpenseField = calculate("coach-expense-field");
+    const previousPlayerTotalExpense = document.getElementById(
+      "player-total-expense"
+    ).innerText;
+    const previousPlayerTotalExpenseNumber = parseFloat(
+      previousPlayerTotalExpense
+    );
+    // const playerTotalExpense = calculate("player-total-expense");
+    const totalExpense =
+      managerExpenseField +
+      coachExpenseField +
+      previousPlayerTotalExpenseNumber;
+    console.log(typeof totalExpense, totalExpense);
+    document.getElementById("calculate-total-final").innerText = totalExpense;
+  });

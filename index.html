@@ -255,9 +255,9 @@
                       <div class="d-flex justify-content-between px-4">
                         <label for="">Manager</label>
                         <input
+                          id="manager-expense-field"
                           type="text"
                           name=""
-                          id=""
                           class="w-50 bg-dark border-white text-white"
                         />
                       </div>
@@ -268,14 +268,15 @@
                       <div class="d-flex justify-content-between px-4">
                         <label for="">Coach</label>
                         <input
+                          id="coach-expense-field"
                           type="text"
                           name=""
-                          id=""
                           class="w-50 bg-dark border-white text-white"
                         />
                       </div>
                     </div>
                     <button
+                      id="calculate-total-btn"
                       class="btn btn-primary w-75 mx-auto mt-3 fs-5 mb-3 rounded-0"
                     >
                       Calculate Total
@@ -284,7 +285,11 @@
 
                   <div class="px-2">
                     <div class="d-flex justify-content-between px-4">
-                      <span>Total</span> <span>$0</span>
+                      <span>Total</span>
+                      <span>
+                        $
+                        <span id="calculate-total-final">0</span>
+                      </span>
                     </div>
                   </div>
                 </div>
