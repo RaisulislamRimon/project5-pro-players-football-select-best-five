@@ -7,6 +7,7 @@ function displaySelectedPlayers(playerTotalArray) {
   // console.log(playerTotalArray.length);
   if (playerTotalArray.length > 5) {
     alert("You can only select 5 players");
+    // if selected player is more than 5 then it will remove the last selected player
     playerTotalArray.pop();
     return;
   }
