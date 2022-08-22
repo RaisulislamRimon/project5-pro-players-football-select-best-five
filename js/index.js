@@ -5,7 +5,10 @@ const playerTotalArray = [];
 function displaySelectedPlayers(playerTotalArray) {
   console.log(playerTotalArray);
   console.log(playerTotalArray.length);
-  if (playerTotalArray.length === 5) {
+  // if (playerTotalArray.length === 5) {
+  if (playerTotalArray.length > 5) {
+    alert("You can select only 5 players");
+    playerTotalArray.pop();
     document.querySelectorAll(".player-select-button").forEach((button) => {
       button.disabled = true;
     });
