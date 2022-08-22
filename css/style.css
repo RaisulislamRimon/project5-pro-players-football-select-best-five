@@ -2,10 +2,10 @@
 /* header css  */
 header {
   background-color: #1d1c1c;
-  background-image: url("../images/football.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* background-image: url("../images/football.png"); */
+  /* background-repeat: no-repeat; */
   /* background-position: right; */
+  /* background-size: cover; */
 }
 header h1 {
   font-family: "Berkshire Swash", cursive;
