@@ -73,14 +73,29 @@ function calculate(elementId) {
   // document.getElementById("player-total-expense").innerText = totalExpense;
 }
 
+// validation check
+function validationCheck(elementCheck) {
+  if (elementCheck < 0 || isNaN(elementCheck)) {
+    alert("Please enter valid input in every expense input field.");
+    return;
+  } else {
+    return elementCheck;
+  }
+}
 function calculateBudget() {
   const totalSelectedPlayers = playerTotalArray.length;
   const totalExpense = calculate(
     "per-player-expense-field"
     // , totalSelectedPlayers
   );
-  document.getElementById("player-total-expense").innerText =
-    totalExpense * totalSelectedPlayers;
+  // checking totalExpense is a valid input or not
+  const validInput = validationCheck(totalExpense);
+  if (!validInput) {
+    return;
+  } else {
+    document.getElementById("player-total-expense").innerText =
+      totalExpense * totalSelectedPlayers;
+  }
 }
 
 document
@@ -94,11 +109,20 @@ document
     const previousPlayerTotalExpenseNumber = parseFloat(
       previousPlayerTotalExpense
     );
-    // const playerTotalExpense = calculate("player-total-expense");
-    const totalExpense =
-      managerExpenseField +
-      coachExpenseField +
-      previousPlayerTotalExpenseNumber;
-    console.log(typeof totalExpense, totalExpense);
-    document.getElementById("calculate-total-final").innerText = totalExpense;
+
+    // validation check
+    if (
+      !validationCheck(managerExpenseField) ||
+      !validationCheck(coachExpenseField)
+    ) {
+      return;
+    } else {
+      // const playerTotalExpense = calculate("player-total-expense");
+      const totalExpense =
+        managerExpenseField +
+        coachExpenseField +
+        previousPlayerTotalExpenseNumber;
+      console.log(typeof totalExpense, totalExpense);
+      document.getElementById("calculate-total-final").innerText = totalExpense;
+    }
   });
