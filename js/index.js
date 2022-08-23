@@ -60,7 +60,7 @@ function displaySelectedPlayers(playerTotalArray) {
 function selectPlayer(element) {
   // console.log(element);
   // disable button after selected
-  element.disabled = true;
+  // element.disabled = true;
   const playerName = element.parentNode.children[1].innerText;
   //   creating player name Object
   const playerNameObj = {
@@ -68,6 +68,21 @@ function selectPlayer(element) {
   };
   //   pushing player name object to playerTotalArray
   playerTotalArray.push(playerNameObj);
+
+  if (playerTotalArray.length <= 5) {
+    // disabling last button after 5 players are selected
+    // const lastButton = document.querySelectorAll(
+    //   ".player-select-button:last-child"
+    // );
+    element.disabled = true;
+    //stop event bubble propagation
+  } else {
+    // disabling last button after 5 players are selected
+    const lastButton = document.querySelectorAll(
+      ".player-select-button:last-child"
+    );
+    lastButton.disabled = true;
+  }
 
   // if (playerTotalArray.length > 5) {
   //   document.querySelectorAll("button").forEach((button) => {
