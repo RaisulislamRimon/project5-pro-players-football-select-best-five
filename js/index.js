@@ -3,50 +3,18 @@ const playerTotalArray = [];
 
 //  displaying selected players
 function displaySelectedPlayers(playerTotalArray) {
-  // console.log(playerTotalArray);
-  // console.log(playerTotalArray.length);
   if (playerTotalArray.length === 6) {
     alert("You can only select 5 players");
     playerTotalArray.pop();
-    // if (playerTotalArray.length >= 5) {
-    // alert("You can select only 5 players");
-    // last added player will be removed automatically
-    // playerTotalArray.pop();
-    // make all buttons disabled after 5 players are selected
-    // if (playerTotalArray.length === 5) {
-    // document.querySelectorAll(".player-select-button").forEach((button) => {
-    //   // button.disabled = true;
-    //   button.addEventListener("click", (event) => {
-    //     alert("You can select only 5 players");
-    //     button.disabled = false;
-    //   });
-    // });
-    // }
-    // if 5 players selected then disable attribute removed
-    // document.querySelectorAll(".player-select-button").forEach((button) => {
-    //   for (let i = 0; i < playerTotalArray.length - 1; i++) {
-    //     if (
-    //       button.parentNode.children[1].innerText !==
-    //       playerTotalArray[i].playerName
-    //     ) {
-    //       button.disabled = true;
-    //     } else {
-    //       button.disabled = false;
-    //     }
-    //   }
-    // });
-    // return;
   }
 
   // clearing list of selected players everytime before adding new players
   const selectedPlayerV = document.getElementById("selected-player-v");
   selectedPlayerV.innerHTML = "";
 
-  // find out player name from array
+  // find out player name from playerTotalArray
   for (const player of playerTotalArray) {
-    // console.log(player.playerName);
     const playerName = player.playerName;
-
     // creating list of selected players
     const playerNameElement = document.createElement("li");
     playerNameElement.innerText = playerName;
@@ -58,42 +26,25 @@ function displaySelectedPlayers(playerTotalArray) {
 
 // function to select player and add to array
 function selectPlayer(element) {
-  // console.log(element);
-  // disable button after selected
-  // element.disabled = true;
   const playerName = element.parentNode.children[1].innerText;
-  //   creating player name Object
+  // creating player name Object
   const playerNameObj = {
     playerName: playerName,
   };
-  //   pushing player name object to playerTotalArray
+  // pushing player name object to playerTotalArray
   playerTotalArray.push(playerNameObj);
 
+  // user can select max 5 players
   if (playerTotalArray.length <= 5) {
-    // disabling last button after 5 players are selected
-    // const lastButton = document.querySelectorAll(
-    //   ".player-select-button:last-child"
-    // );
     element.disabled = true;
-    //stop event bubble propagation
   } else {
-    // disabling last button after 5 players are selected
-    // const lastButton = document.querySelectorAll(
-    //   ".player-select-button:last-child"
-    // );
-    // lastButton.disabled = true;
     element.disabled = false;
   }
-
-  // if (playerTotalArray.length > 5) {
-  //   document.querySelectorAll("button").forEach((button) => {
-  //     button.disabled = true;
-  //   });
-  // }
-
+  // sending playerTotalArray to displaySelectedPlayers function
   displaySelectedPlayers(playerTotalArray);
 }
 
+// calculate btn click event
 document
   .getElementById("calculate-btn")
   .addEventListener("click", calculateBudget);
@@ -102,14 +53,9 @@ document
 function calculate(elementId) {
   const expenseField = document.getElementById(elementId);
   const expenseFieldString = expenseField.value;
-  // console.log(typeof perPlayerExpenseFieldString, perPlayerExpenseFieldString);
+
   const expense = parseFloat(expenseFieldString);
   return expense;
-  // console.log(typeof perPlayerExpense, perPlayerExpense);
-  // const totalExpense = perPlayerExpense * totalSelectedPlayers;
-  // console.log(totalExpense);
-  // return totalExpense;
-  // document.getElementById("player-total-expense").innerText = totalExpense;
 }
 
 // validation check
@@ -121,12 +67,11 @@ function validationCheck(elementCheck) {
     return elementCheck;
   }
 }
+
+// function to claculate budget
 function calculateBudget() {
   const totalSelectedPlayers = playerTotalArray.length;
-  const totalExpense = calculate(
-    "per-player-expense-field"
-    // , totalSelectedPlayers
-  );
+  const totalExpense = calculate("per-player-expense-field");
   // checking totalExpense is a valid input or not
   const validInput = validationCheck(totalExpense);
   if (!validInput) {
@@ -137,6 +82,7 @@ function calculateBudget() {
   }
 }
 
+// calculate-total-btn working on click event
 document
   .getElementById("calculate-total-btn")
   .addEventListener("click", function () {
@@ -156,12 +102,10 @@ document
     ) {
       return;
     } else {
-      // const playerTotalExpense = calculate("player-total-expense");
       const totalExpense =
         managerExpenseField +
         coachExpenseField +
         previousPlayerTotalExpenseNumber;
-      // console.log(typeof totalExpense, totalExpense);
       document.getElementById("calculate-total-final").innerText = totalExpense;
     }
   });
