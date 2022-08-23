@@ -3,8 +3,8 @@ const playerTotalArray = [];
 
 //  displaying selected players
 function displaySelectedPlayers(playerTotalArray) {
-  console.log(playerTotalArray);
-  console.log(playerTotalArray.length);
+  // console.log(playerTotalArray);
+  // console.log(playerTotalArray.length);
   if (playerTotalArray.length === 6) {
     alert("You can only select 5 players");
     playerTotalArray.pop();
@@ -161,7 +161,7 @@ document
         managerExpenseField +
         coachExpenseField +
         previousPlayerTotalExpenseNumber;
-      console.log(typeof totalExpense, totalExpense);
+      // console.log(typeof totalExpense, totalExpense);
       document.getElementById("calculate-total-final").innerText = totalExpense;
     }
   });
