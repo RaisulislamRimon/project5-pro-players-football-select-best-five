@@ -78,10 +78,11 @@ function selectPlayer(element) {
     //stop event bubble propagation
   } else {
     // disabling last button after 5 players are selected
-    const lastButton = document.querySelectorAll(
-      ".player-select-button:last-child"
-    );
-    lastButton.disabled = true;
+    // const lastButton = document.querySelectorAll(
+    //   ".player-select-button:last-child"
+    // );
+    // lastButton.disabled = true;
+    element.disabled = false;
   }
 
   // if (playerTotalArray.length > 5) {
